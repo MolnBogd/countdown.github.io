@@ -1,0 +1,67 @@
+/* Reset and layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    font-family: 'Arial Black', sans-serif;
+}
+
+/* Container with top/bottom 3cm black bars */
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 3cm;
+    padding-bottom: 3cm;
+    box-sizing: border-box;
+    position: relative;
+    background-color: black;
+}
+
+/* Full-width stretched image */
+.background img {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 6cm); /* subtract 3cm top & bottom */
+    object-fit: cover;
+}
+
+/* Countdown overlay centered on image */
+.countdown-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+    padding: 20px;
+    animation: pulse 2s infinite;
+}
+
+/* Ensure single-line display */
+.countdown-container h1 {
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: 3px;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0%, 100% {
+        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+    }
+    50% {
+        text-shadow: 0 0 15px #fff, 0 0 25px #0ff, 0 0 35px #0ff;
+    }
+}
+
+/* Responsive scaling for smaller screens */
+@media (max-width: 600px) {
+    .countdown-container {
+        font-size: 2em;
+    }
+}
